@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Titre de la page</title>
+</head>
+<body>
+    
+</body>
+</html><!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DG DEUCALION BUSINESS | Luxe & Élégance</title>
+    <!-- Tailwind CSS CDN pour un design moderne, luxueux et parfaitement responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display pour le luxe et Inter pour la lisibilité -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            light: '#F3E5AB',
+                            DEFAULT: '#D4AF37',
+                            dark: '#AA7C11',
+                            metallic: '#C5A059'
+                        },
+                        darkBg: '#0A0A0A',
+                        cardBg: '#141414',
+                        cardHover: '#1E1E1E'
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0A0A;
+            color: #E5E7EB;
+        }
+        h1, h2, h3, h4, .font-luxury {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Effet de brillance dorée */
+        .gold-gradient {
+            background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA7C11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border {
+            border-color: #D4AF37;
+        }
+        .gold-bg {
+            background-color: #D4AF37;
+        }
+        .gold-bg:hover {
+            background-color: #C5A059;
+        }
+        /* Style de la barre de défilement */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-gray-100 antialiased selection:bg-gold selection:text-black">
+
+    <!-- TOP BAR NOTIFICATION -->
+    <div class="bg-gradient-to-r from-gold-dark via-gold to-gold-dark text-black text-xs md:text-sm font-semibold py-2 px-4 text-center tracking-wider">
+        ✨ LIVRAISON RAPIDE EN HAÏTI • CONTACTEZ-NOUS AU +509 3299 4278 ✨
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-darkBg/95 backdrop-blur-md border-b border-gold/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- LOGO -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-full border-2 border-gold flex items-center justify-center bg-cardBg group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-crown text-gold text-lg"></i>
+                </div>
+                <div>
+                    <span class="font-luxury text-xl md:text-2xl font-bold tracking-wider gold-gradient">DG DEUCALION</span>
+                    <span class="block text-[10px] tracking-[0.25em] text-gray-400 uppercase">Business & Luxury</span>
+                </div>
+            </a>
+
+            <!-- NAVIGATION DESKTOP -->
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium">
+                <a href="#accueil" class="hover:text-gold transition-colors">Accueil</a>
+                <a href="#produits" class="hover:text-gold transition-colors">Boutique</a>
+                <a href="#services" class="hover:text-gold transition-colors">Services Pro</a>
+                <a href="#paiement" class="hover:text-gold transition-colors">Paiement</a>
+                <a href="#apropos" class="hover:text-gold transition-colors">À propos</a>
+                <a href="#contact" class="hover:text-gold transition-colors">Contact</a>
+            </nav>
+
+            <!-- ACTIONS (Recherche & Panier) -->
+            <div class="flex items-center space-x-4">
+                <!-- Bouton Recherche Toggle -->
+                <button onclick="toggleSearch()" class="p-2 text-gray-300 hover:text-gold transition-colors relative" title="Rechercher">
+                    <i class="fa-solid fa-search text-lg"></i>
+                </button>
+
+                <!-- Bouton Panier -->
+                <button onclick="toggleCart()" class="relative bg-cardBg border border-gold/40 hover:border-gold px-4 py-2 rounded-full flex items-center space-x-2 transition-all duration-300 group">
+                    <i class="fa-solid fa-bag-shopping text-gold group-hover:scale-110 transition-transform"></i>
+                    <span class="hidden sm:inline text-xs font-semibold tracking-wider uppercase">Panier</span>
+                    <span id="cart-badge" class="absolute -top-2 -right-2 bg-gold text-black font-bold text-xs w-6 h-6 rounded-full flex items-center justify-center shadow-md">0</span>
+                </button>
+
+                <!-- Menu Mobile Burger -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-gray-300 hover:text-gold transition-colors">
+                    <i id="mobile-menu-icon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- BARRE DE RECHERCHE DÉROULANTE -->
+        <div id="search-bar-container" class="hidden bg-cardBg border-t border-gold/20 py-4 px-4 transition-all duration-300">
+            <div class="max-w-3xl mx-auto flex items-center bg-darkBg border border-gold/40 rounded-full px-4 py-2">
+                <i class="fa-solid fa-search text-gold mr-3"></i>
+                <input type="text" id="searchInput" oninput="filterProducts()" placeholder="Rechercher un produit, vêtement, parfum, service..." class="w-full bg-transparent text-gray-100 focus:outline-none text-sm">
+                <button onclick="toggleSearch()" class="text-gray-400 hover:text-gold ml-2"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+        </div>
+
+        <!-- MENU MOBILE -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-cardBg border-t border-gold/20 px-6 py-6 space-y-4">
+            <a href="#accueil" onclick="toggleMobileMenu()" class="block text-lg hover:text-gold transition-colors">Accueil</a>
+            <a href="#produits" onclick="toggleMobileMenu()" class="block text-lg hover:text-gold transition-colors">Boutique</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="block text-lg hover:text-gold transition-colors">Services Pro</a>
+            <a href="#paiement" onclick="toggleMobileMenu()" class="block text-lg hover:text-gold transition-colors">Paiement</a>
+            <a href="#apropos" onclick="toggleMobileMenu()" class="block text-lg hover:text-gold transition-colors">À propos</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block text-lg hover:text-gold transition-colors">Contact</a>
+        </div>
+    </header>
+
+    <!-- SECTION ACCUEIL / BANNIÈRE PREMIUM -->
+    <section id="accueil" class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-cover bg-center" style="background-image: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.9)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1920');">
+        <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent"></div>
+        <div class="relative max-w-5xl mx-auto px-4 text-center py-20">
+            <span class="inline-block uppercase tracking-[0.3em] text-gold text-xs md:text-sm font-semibold mb-4 px-4 py-1.5 border border-gold/40 rounded-full bg-darkBg/50 backdrop-blur-sm">
+                Excellence & Prestigieux
+            </span>
+            <h1 class="font-luxury text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
+                Bienvenue chez <br><span class="gold-gradient">DG DEUCALION BUSINESS</span>
+            </h1>
+            <p class="text-gray-300 text-base sm:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                Votre destination de luxe pour des produits d'exception (parfums, mode, accessoires) et des services numériques professionnels sur mesure en Haïti.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#produits" class="w-full sm:w-auto gold-bg text-black font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-gold/30 hover:scale-105 transition-all duration-300 text-center tracking-wider uppercase text-sm">
+                    Découvrir la Boutique
+                </a>
+                <a href="#services" class="w-full sm:w-auto bg-transparent border-2 border-gold text-gold hover:bg-gold hover:text-black font-bold px-8 py-3.5 rounded-full transition-all duration-300 text-center tracking-wider uppercase text-sm">
+                    Nos Services Pro
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION BOUTIQUE & PRODUITS -->
+    <section id="produits" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <span class="text-gold text-xs font-bold uppercase tracking-[0.2em]">Collection Exclusive</span>
+            <h2 class="font-luxury text-3xl sm:text-5xl font-bold mt-2 mb-4">Nos Produits & Articles</h2>
+            <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+            <p class="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
+                Sélectionnez vos articles de luxe et ajoutez-les directement à votre panier pour commander instantanément via WhatsApp.
+            </p>
+
+            <!-- FILTRES PAR CATÉGORIES -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-8">
+                <button onclick="filterCategory('tous')" id="btn-tous" class="category-btn active px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 bg-gold text-black shadow-md">
+                    Tous
+                </button>
+                <button onclick="filterCategory('Parfum')" id="btn-Parfum" class="category-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 bg-cardBg border border-gold/30 hover:border-gold text-gray-300">
+                    Parfums
+                </button>
+                <button onclick="filterCategory('Vêtement')" id="btn-Vêtement" class="category-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 bg-cardBg border border-gold/30 hover:border-gold text-gray-300">
+                    Vêtements
+                </button>
+                <button onclick="filterCategory('Chaussure')" id="btn-Chaussure" class="category-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 bg-cardBg border border-gold/30 hover:border-gold text-gray-300">
+                    Chaussures
+                </button>
+                <button onclick="filterCategory('Accessoire')" id="btn-Accessoire" class="category-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 bg-cardBg border border-gold/30 hover:border-gold text-gray-300">
+                    Accessoires
+                </button>
+                <button onclick="filterCategory('Divers')" id="btn-Divers" class="category-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 bg-cardBg border border-gold/30 hover:border-gold text-gray-300">
+                    Divers
+                </button>
+            </div>
+        </div>
+
+        <!-- GRILLE DE PRODUITS -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Injecté dynamiquement par JavaScript -->
+        </div>
+    </section>
+
+    <!-- SECTION SERVICES PROFESSIONNELS -->
+    <section id="services" class="py-20 bg-cardBg border-y border-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-gold text-xs font-bold uppercase tracking-[0.2em]">Expertise & Digital</span>
+                <h2 class="font-luxury text-3xl sm:text-5xl font-bold mt-2 mb-4">Nos Services Professionnels</h2>
+                <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+                <p class="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
+                    Développez votre image de marque et propulsez votre entreprise avec nos services haut de gamme.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-darkBg border border-gold/30 hover:border-gold p-8 rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-gold/10 group">
+                    <div class="w-16 h-16 rounded-xl bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-paintbrush"></i>
+                    </div>
+                    <h3 class="font-luxury text-xl font-bold mb-3">Création de Logos Professionnels</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Donnez une identité visuelle unique, luxueuse et mémorable à votre entreprise pour marquer les esprits.
+                    </p>
+                    <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-800">
+                        <span class="text-gold font-bold text-lg">12,500 HTG</span>
+                        <button onclick="addServiceToCart('Création de logo professionnel', 12500, 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=600')" class="gold-bg text-black text-xs font-bold uppercase px-4 py-2.5 rounded-full hover:scale-105 transition-transform flex items-center space-x-1.5">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Commander</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-darkBg border border-gold/30 hover:border-gold p-8 rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-gold/10 group">
+                    <div class="w-16 h-16 rounded-xl bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h3 class="font-luxury text-xl font-bold mb-3">Création de Profils Personnels</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Optimisation et design de profils professionnels (LinkedIn, réseaux sociaux, portfolios) pour booster votre visibilité.
+                    </p>
+                    <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-800">
+                        <span class="text-gold font-bold text-lg">7,500 HTG</span>
+                        <button onclick="addServiceToCart('Création de profil personnel', 7500, 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600')" class="gold-bg text-black text-xs font-bold uppercase px-4 py-2.5 rounded-full hover:scale-105 transition-transform flex items-center space-x-1.5">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Commander</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-darkBg border border-gold/30 hover:border-gold p-8 rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-gold/10 group">
+                    <div class="w-16 h-16 rounded-xl bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3 class="font-luxury text-xl font-bold mb-3">Création de Profils Business</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Mise en place complète de pages business optimisées pour la conversion, la vente et l'image de marque professionnelle.
+                    </p>
+                    <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-800">
+                        <span class="text-gold font-bold text-lg">15,000 HTG</span>
+                        <button onclick="addServiceToCart('Création de profil business', 15000, 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=600')" class="gold-bg text-black text-xs font-bold uppercase px-4 py-2.5 rounded-full hover:scale-105 transition-transform flex items-center space-x-1.5">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Commander</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PAIEMENT (NATCASH & MONCASH) -->
+    <section id="paiement" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-gold text-xs font-bold uppercase tracking-[0.2em]">Sécurisé & Rapide</span>
+            <h2 class="font-luxury text-3xl sm:text-5xl font-bold mt-2 mb-4">Moyens de Paiement</h2>
+            <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+            <p class="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
+                Réglez vos achats en toute simplicité en Haïti grâce à nos solutions de paiement sécurisées.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- NatCash Box -->
+            <div class="bg-cardBg border-2 border-gold/60 p-8 rounded-3xl shadow-2xl relative overflow-hidden flex flex-col justify-between">
+                <div class="absolute -right-10 -top-10 w-32 h-32 bg-gold/10 rounded-full blur-2xl"></div>
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 rounded-full bg-gold/20 border border-gold flex items-center justify-center text-gold text-xl font-bold">
+                                N
+                            </div>
+                            <div>
+                                <h3 class="font-luxury text-2xl font-bold text-white">NatCash</h3>
+                                <span class="text-xs text-gold font-semibold uppercase tracking-wider">Paiement Instantané</span>
+                            </div>
+                        </div>
+                        <span class="bg-emerald-5
